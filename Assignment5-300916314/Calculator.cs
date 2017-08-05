@@ -11,7 +11,7 @@ using System.Windows.Forms;
  * StudentID: 300916314
  * Date: August4, 2017
  * Description: Assignment5 BMI calculator Form
- * Version: 0.1 Created BMI Calculator Form Project
+ * Version: 0.2 Revised BMI Calculator Form Project User Interface
  */
 namespace Assignment5_300916314
 {
