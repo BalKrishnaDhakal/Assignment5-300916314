@@ -12,8 +12,8 @@ using System.Windows.Forms;
  * StudentID: 300916314
  * Date: August13, 2017
  * Description: Assignment5 BMI calculator Form
- * Version: 10  _Clear Method is Created 
- */
+ * Version: 11  An Event Handler Method for Reset Button ic Created
+ */ 
 namespace Assignment5_300916314
 {
     public partial class BMICalculatorForm : Form
@@ -181,36 +181,36 @@ namespace Assignment5_300916314
         /// <param name="e"></param>
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
-            {
+            
                 CalculateBMI();
 
                 if (BMIResult < 18.5)
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + " It shows that you are under weight";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + ", It shows that you are under weight";
 
                 }
                 if ((BMIResult >= 18.5) && (BMIResult <= 24.9))
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + " It shows that your weight is  normal";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + ", It shows that your weight is  normal";
 
                 }
                 if ((BMIResult >= 25) && (BMIResult <= 29.9))
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + " It shows that you are overweight";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + ", It shows that you are overweight";
 
                 }
                 if (BMIResult >= 30)
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + " It shows that you are obese";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + ", It shows that you are obese";
 
                 }
-                else
-                {
-                    ResultDisplayAreaTextBox.Text = "ERROR! Please Fill the Form Completely";
-                }
-             }
+            //else
+            //{
+            //    ResultDisplayAreaTextBox.Text = "ERROR! Please Fill the Form Completely";
+            //}
+        }
 
-           }
+           
         /// <summary>
         /// This method converts from the string  result textBox to a number
         /// </summary>

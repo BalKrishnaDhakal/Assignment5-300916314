@@ -34,7 +34,7 @@
             this.ResultDisplayAreaTextBox = new System.Windows.Forms.TextBox();
             this.ImperialUnitsButton = new System.Windows.Forms.RadioButton();
             this.KgsLabel = new System.Windows.Forms.Label();
-            this.HeightLabel = new System.Windows.Forms.Label();
+            this.MyHeightLabel = new System.Windows.Forms.Label();
             this.MyWeightLabel = new System.Windows.Forms.Label();
             this.MetricUnitsButton = new System.Windows.Forms.RadioButton();
             this.CalculatorHeadingBox = new System.Windows.Forms.TableLayoutPanel();
@@ -124,19 +124,19 @@
             this.KgsLabel.TabIndex = 5;
             this.KgsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // HeightLabel
+            // MyHeightLabel
             // 
-            this.HeightLabel.AutoSize = true;
-            this.CalculatorHeadingBox.SetColumnSpan(this.HeightLabel, 2);
-            this.HeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightLabel.Location = new System.Drawing.Point(10, 135);
-            this.HeightLabel.Margin = new System.Windows.Forms.Padding(10, 5, 0, 0);
-            this.HeightLabel.Name = "HeightLabel";
-            this.HeightLabel.Padding = new System.Windows.Forms.Padding(10, 5, 0, 0);
-            this.HeightLabel.Size = new System.Drawing.Size(105, 29);
-            this.HeightLabel.TabIndex = 6;
-            this.HeightLabel.Text = "My Height";
-            this.HeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.MyHeightLabel.AutoSize = true;
+            this.CalculatorHeadingBox.SetColumnSpan(this.MyHeightLabel, 2);
+            this.MyHeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MyHeightLabel.Location = new System.Drawing.Point(10, 135);
+            this.MyHeightLabel.Margin = new System.Windows.Forms.Padding(10, 5, 0, 0);
+            this.MyHeightLabel.Name = "MyHeightLabel";
+            this.MyHeightLabel.Padding = new System.Windows.Forms.Padding(10, 5, 0, 0);
+            this.MyHeightLabel.Size = new System.Drawing.Size(105, 29);
+            this.MyHeightLabel.TabIndex = 6;
+            this.MyHeightLabel.Text = "My Height";
+            this.MyHeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MyWeightLabel
             // 
@@ -176,7 +176,7 @@
             this.CalculatorHeadingBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.CalculatorHeadingBox.Controls.Add(this.MetricUnitsButton, 0, 0);
             this.CalculatorHeadingBox.Controls.Add(this.MyWeightLabel, 0, 1);
-            this.CalculatorHeadingBox.Controls.Add(this.HeightLabel, 0, 2);
+            this.CalculatorHeadingBox.Controls.Add(this.MyHeightLabel, 0, 2);
             this.CalculatorHeadingBox.Controls.Add(this.ImperialUnitsButton, 2, 0);
             this.CalculatorHeadingBox.Controls.Add(this.KgsLabel, 3, 1);
             this.CalculatorHeadingBox.Controls.Add(this.WeightTextBox, 2, 1);
@@ -255,7 +255,7 @@
         private System.Windows.Forms.TableLayoutPanel CalculatorHeadingBox;
         private System.Windows.Forms.RadioButton MetricUnitsButton;
         private System.Windows.Forms.Label MyWeightLabel;
-        private System.Windows.Forms.Label HeightLabel;
+        private System.Windows.Forms.Label MyHeightLabel;
         private System.Windows.Forms.Label KgsLabel;
         private System.Windows.Forms.Label MetersLabel;
         private System.Windows.Forms.TextBox WeightTextBox;
