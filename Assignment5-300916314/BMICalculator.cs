@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
 /* Name: Bal Krishna Dhakal
  * StudentID: 300916314
  * Date: August13, 2017
  * Description: Assignment5 BMI calculator Form
- * Version: 0.8  Event Handler method for the CalculateBMIButton is Created
+ * Version: 0.9  _convertOperand Method  which converts from the string from the result textBox to a number is Created
  */
 namespace Assignment5_300916314
 {
@@ -203,8 +204,31 @@ namespace Assignment5_300916314
                     ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + " It shows that you are obese";
 
                 }
+                else
+                {
+                    ResultDisplayAreaTextBox.Text = "ERROR! Please Fill the Form Completely";
+                }
+             }
 
-            }
+           }
+        /// <summary>
+        /// This method converts from the string  result textBox to a number
+        /// </summary>
+        /// <param name="inputString"></param>
+        /// <returns></returns>
+        private double _convertOperand(string inputString)
+             {
+               try
+              {
+                return Convert.ToDouble(inputString);
+             }
+             catch (Exception exception)
+             {
+                Debug.WriteLine("An Error Occured");
+                Debug.WriteLine(exception.Message);
+             }
+             return 0;
         }
     }
+    
 }
