@@ -12,7 +12,7 @@ using System.Windows.Forms;
  * StudentID: 300916314
  * Date: August13, 2017
  * Description: Assignment5 BMI calculator Form
- * Version: 0.9  _convertOperand Method  which converts from the string from the result textBox to a number is Created
+ * Version: 10  _Clear Method is Created 
  */
 namespace Assignment5_300916314
 {
@@ -228,7 +228,31 @@ namespace Assignment5_300916314
                 Debug.WriteLine(exception.Message);
              }
              return 0;
+         }
+        /// <summary>
+        /// This methods clear all inputs and results from the form
+        /// </summary>
+        private void _clear()
+        {
+            ResultDisplayAreaTextBox.Text = "";
+            HeightTextBox.Text = "";
+            WeightTextBox.Text = "";
+            ImperialUnitsButton.Checked = false;
+            MetricUnitsButton.Checked = false;
+            KgsLabel.Text = "";
+            MetersLabel.Text = "";
+
+        }
+        /// <summary>
+        ///  This is an Event Handler Method for the ResetButton which resets the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            _clear();
+
         }
     }
-    
+
 }
