@@ -11,7 +11,7 @@ using System.Windows.Forms;
  * StudentID: 300916314
  * Date: August12, 2017
  * Description: Assignment5 BMI calculator Form
- * Version: 0.4 Revised BMICalculator Form UI
+ * Version: 0.5  An Event Handler method for the MetricUnitsButton Checked is Created
  */
 namespace Assignment5_300916314
 {
@@ -116,18 +116,30 @@ namespace Assignment5_300916314
         {
             InitializeComponent();
         }
+
+        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
         /// <summary>
         /// This is an Event Handler for the form closing
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// 
-        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         private void BMICalculatorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
-       
+
+        /// <summary>
+        /// This is an Event Handler for the MetricUnitsButton Checked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MetricUnitsButton_CheckedChanged(object sender, EventArgs e)
+        {
+            KgsLabel.Text = "Kgs";
+            MetersLabel.Text = "Meters";
+        }
     }
 }

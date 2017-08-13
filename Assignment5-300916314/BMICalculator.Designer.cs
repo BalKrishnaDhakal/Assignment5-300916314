@@ -159,6 +159,7 @@
             this.MetricUnitsButton.TabIndex = 1;
             this.MetricUnitsButton.Text = "Metric Units";
             this.MetricUnitsButton.UseVisualStyleBackColor = false;
+            this.MetricUnitsButton.CheckedChanged += new System.EventHandler(this.MetricUnitsButton_CheckedChanged);
             // 
             // CalculatorHeadingBox
             // 
