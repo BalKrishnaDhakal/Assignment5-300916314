@@ -11,7 +11,7 @@ using System.Windows.Forms;
  * StudentID: 300916314
  * Date: August13, 2017
  * Description: Assignment5 BMI calculator Form
- * Version: 0.7  CalculateBMI method is Created 
+ * Version: 0.8  Event Handler method for the CalculateBMIButton is Created
  */
 namespace Assignment5_300916314
 {
@@ -132,7 +132,7 @@ namespace Assignment5_300916314
         }
 
         /// <summary>
-        /// This is an Event Handler for the MetricUnitsButton Checked
+        /// This is an Event Handler for the MetricUnitsButton Checked ++++++++++++++++++++++++++++++++++++++++++
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -142,7 +142,7 @@ namespace Assignment5_300916314
             MetersLabel.Text = "Meters";
         }
         /// <summary>
-        /// This is an Event Handler for the ImperialUnitsButton Checked
+        /// This is an Event Handler for the ImperialUnitsButton Checked +++++++++++++++++++++++++++++++++++++++++++++++
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -152,7 +152,7 @@ namespace Assignment5_300916314
             MetersLabel.Text = "Inches";
         }
         /// <summary>
-        /// This is the main method to calculate the BMI in this project
+        /// This is the main method to calculate the BMI in this project ++++++++++++++++++++++++++++++++++++++++++++++++
         /// </summary>
         private void CalculateBMI()
         {
@@ -172,6 +172,39 @@ namespace Assignment5_300916314
 
             }
 
+        }
+        /// <summary>
+        /// This is an Event Handler for the CalculateBMIButton which onclick displays the result
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CalculateBMIButton_Click(object sender, EventArgs e)
+        {
+            {
+                CalculateBMI();
+
+                if (BMIResult < 18.5)
+                {
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + " It shows that you are under weight";
+
+                }
+                if ((BMIResult >= 18.5) && (BMIResult <= 24.9))
+                {
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + " It shows that your weight is  normal";
+
+                }
+                if ((BMIResult >= 25) && (BMIResult <= 29.9))
+                {
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + " It shows that you are overweight";
+
+                }
+                if (BMIResult >= 30)
+                {
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + " It shows that you are obese";
+
+                }
+
+            }
         }
     }
 }

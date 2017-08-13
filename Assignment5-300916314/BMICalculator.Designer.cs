@@ -54,6 +54,7 @@
             this.CalculateBMIButton.TabIndex = 10;
             this.CalculateBMIButton.Text = "Calculate BMI";
             this.CalculateBMIButton.UseVisualStyleBackColor = false;
+            this.CalculateBMIButton.Click += new System.EventHandler(this.CalculateBMIButton_Click);
             // 
             // ResetButton
             // 
@@ -86,6 +87,8 @@
             // 
             this.ResultDisplayAreaTextBox.BackColor = System.Drawing.Color.White;
             this.ResultDisplayAreaTextBox.Enabled = false;
+            this.ResultDisplayAreaTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultDisplayAreaTextBox.ForeColor = System.Drawing.Color.Tomato;
             this.ResultDisplayAreaTextBox.Location = new System.Drawing.Point(2, 268);
             this.ResultDisplayAreaTextBox.Multiline = true;
             this.ResultDisplayAreaTextBox.Name = "ResultDisplayAreaTextBox";
