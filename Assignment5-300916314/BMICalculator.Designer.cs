@@ -115,9 +115,8 @@
             this.KgsLabel.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.KgsLabel.Name = "KgsLabel";
             this.KgsLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.KgsLabel.Size = new System.Drawing.Size(78, 25);
+            this.KgsLabel.Size = new System.Drawing.Size(0, 25);
             this.KgsLabel.TabIndex = 5;
-            this.KgsLabel.Text = "Kilograms";
             this.KgsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // HeightLabel
@@ -213,9 +212,8 @@
             this.MetersLabel.Margin = new System.Windows.Forms.Padding(0, 5, 3, 0);
             this.MetersLabel.Name = "MetersLabel";
             this.MetersLabel.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.MetersLabel.Size = new System.Drawing.Size(63, 30);
+            this.MetersLabel.Size = new System.Drawing.Size(5, 30);
             this.MetersLabel.TabIndex = 8;
-            this.MetersLabel.Text = "Meters";
             this.MetersLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BMICalculatorForm
