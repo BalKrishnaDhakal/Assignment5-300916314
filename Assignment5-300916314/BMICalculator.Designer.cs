@@ -106,6 +106,7 @@
             this.ImperialUnitsButton.TabIndex = 2;
             this.ImperialUnitsButton.Text = "Imperial Units";
             this.ImperialUnitsButton.UseVisualStyleBackColor = false;
+            this.ImperialUnitsButton.CheckedChanged += new System.EventHandler(this.ImperialUnitsButton_CheckedChanged);
             // 
             // KgsLabel
             // 
