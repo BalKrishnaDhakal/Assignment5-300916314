@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 /* Name: Bal Krishna Dhakal
  * StudentID: 300916314
- * Date: August12, 2017
+ * Date: August13, 2017
  * Description: Assignment5 BMI calculator Form
- * Version: 0.6  An Event Handler method for the ImperialUnitsButton Checked is Created
+ * Version: 0.7  CalculateBMI method is Created 
  */
 namespace Assignment5_300916314
 {
@@ -150,6 +150,28 @@ namespace Assignment5_300916314
         {
             KgsLabel.Text = "Pounds";
             MetersLabel.Text = "Inches";
+        }
+        /// <summary>
+        /// This is the main method to calculate the BMI in this project
+        /// </summary>
+        private void CalculateBMI()
+        {
+            if (MetricUnitsButton.Checked)
+            {
+                WeightInKilograms = Convert.ToDouble(WeightTextBox.Text);
+                HeightInMeters = Convert.ToDouble(HeightTextBox.Text);
+                BMIResult = (WeightInKilograms) / (HeightInMeters * HeightInMeters);
+               
+            }
+            if (ImperialUnitsButton.Checked)
+            {
+
+                HeightInInches = Convert.ToDouble(HeightTextBox.Text);
+                WeightInPounds = Convert.ToDouble(WeightTextBox.Text);
+                BMIResult = (WeightInPounds * 703) / (HeightInInches * HeightInInches);
+
+            }
+
         }
     }
 }
