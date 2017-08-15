@@ -12,24 +12,24 @@ using System.Windows.Forms;
  * StudentID: 300916314
  * Date: August13, 2017
  * Description: Assignment5 BMI calculator Form
- * Version: 0.12  Key press method is created
- */ 
+ * Version: 0.14  Refactored CalculateButtonClick method
+ */
 namespace Assignment5_300916314
 {
     public partial class BMICalculatorForm : Form
     {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-      
+
         private double _weightInKilograms;
         private double _weightInPounds;
         private double _heightInInches;
         private double _heightInMeters;
         private double _bMIResult;
-
+        private bool _calcFlag = false;
 
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-      
+
         public double WeightInKilograms
         {
             get
@@ -50,7 +50,7 @@ namespace Assignment5_300916314
             }
             set
             {
-                this._weightInPounds= value;
+                this._weightInPounds = value;
             }
         }
         public double HeightInInches
@@ -137,20 +137,38 @@ namespace Assignment5_300916314
         {
             if (MetricUnitsButton.Checked)
             {
-                WeightInKilograms = Convert.ToDouble(WeightTextBox.Text);
-                HeightInMeters = Convert.ToDouble(HeightTextBox.Text);
-                BMIResult = (WeightInKilograms) / (HeightInMeters * HeightInMeters);
-                Math.Round(BMIResult, 2);
-               
+                if (!"".Equals(WeightTextBox.Text))
+                {
+                    WeightInKilograms = Convert.ToDouble(WeightTextBox.Text);
+                }
+                if (!"".Equals(HeightTextBox.Text))
+                {
+                    HeightInMeters = Convert.ToDouble(HeightTextBox.Text);
+                }
+                if (!"".Equals(WeightTextBox.Text) && !"".Equals(HeightTextBox.Text))
+                {
+                    BMIResult = (WeightInKilograms) / (HeightInMeters * HeightInMeters);
+                    Math.Round(BMIResult, 2);
+                    _calcFlag = true;
+                }
+
             }
             if (ImperialUnitsButton.Checked)
             {
-
-                HeightInInches = Convert.ToDouble(HeightTextBox.Text);
-                WeightInPounds = Convert.ToDouble(WeightTextBox.Text);
-                BMIResult = (WeightInPounds * 703) / (HeightInInches * HeightInInches);
-                Math.Round(BMIResult, 2);
-
+                if (!"".Equals(HeightTextBox.Text))
+                {
+                    HeightInInches = Convert.ToDouble(HeightTextBox.Text);
+                }
+                if (!"".Equals(HeightTextBox.Text))
+                {
+                    WeightInPounds = Convert.ToDouble(WeightTextBox.Text);
+                }
+                if (!"".Equals(WeightTextBox.Text) && !"".Equals(HeightTextBox.Text))
+                {
+                    BMIResult = (WeightInPounds * 703) / (HeightInInches * HeightInInches);
+                    Math.Round(BMIResult, 2);
+                    _calcFlag = true;
+                }
 
             }
 
@@ -162,54 +180,55 @@ namespace Assignment5_300916314
         /// <param name="e"></param>
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
-            
-                CalculateBMI();
 
-                if (BMIResult < 18.5)
+            CalculateBMI();
+
+            if (_calcFlag)
+            {
+                _calcFlag = false;
+                if (!"".Equals(BMIResult < 18.5))
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + ", It shows that you are under weight";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + "\r\n It shows that you are under weight";
 
                 }
                 if ((BMIResult >= 18.5) && (BMIResult <= 24.9))
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + ", It shows that your weight is  normal";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + "\r\n It shows that your weight is  normal";
 
                 }
                 if ((BMIResult >= 25) && (BMIResult <= 29.9))
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + ", It shows that you are overweight";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + "\r\n It shows that you are overweight";
 
                 }
                 if (BMIResult >= 30)
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + ", It shows that you are obese";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + "\r\n It shows that you are obese";
 
                 }
-            //else
-            //{
-            //    ResultDisplayAreaTextBox.Text = "ERROR! Please Fill the Form Completely";
-            //}
+            }
+
         }
 
-           
+
         /// <summary>
         /// This method converts from the string  result textBox to a number
         /// </summary>
         /// <param name="inputString"></param>
         /// <returns></returns>
         private double _convertOperand(string inputString)
-             {
-               try
-              {
+        {
+            try
+            {
                 return Convert.ToDouble(inputString);
-             }
-             catch (Exception exception)
-             {
+            }
+            catch (Exception exception)
+            {
                 Debug.WriteLine("An Error Occured");
                 Debug.WriteLine(exception.Message);
-             }
-             return 0;
-         }
+            }
+            return 0;
+        }
         /// <summary>
         /// This methods clear all inputs and results from the form
         /// </summary>
@@ -232,7 +251,6 @@ namespace Assignment5_300916314
         private void ResetButton_Click(object sender, EventArgs e)
         {
             _clear();
-
         }
         /// <summary>
         /// This is the Key press Method 
@@ -245,7 +263,7 @@ namespace Assignment5_300916314
         /// <param name="e"></param>
         private void WeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == '.' || e. KeyChar =='8') //The  character represents a backspace
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == '.' || e.KeyChar == '\b') //The  character represents a backspace
             {
                 e.Handled = false; //Do not reject the input
             }
@@ -255,6 +273,6 @@ namespace Assignment5_300916314
             }
         }
     }
-    
+
 
 }
