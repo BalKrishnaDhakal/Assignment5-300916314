@@ -12,15 +12,14 @@ using System.Windows.Forms;
  * StudentID: 300916314
  * Date: August13, 2017
  * Description: Assignment5 BMI calculator Form
- * Version: 11  An Event Handler Method for Reset Button ic Created
+ * Version: 0.12  Key press method is created
  */ 
 namespace Assignment5_300916314
 {
     public partial class BMICalculatorForm : Form
     {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        private bool _isMetricButtonClicked;
-        private bool _isImperialButtonClicked;
+      
         private double _weightInKilograms;
         private double _weightInPounds;
         private double _heightInInches;
@@ -30,28 +29,7 @@ namespace Assignment5_300916314
 
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        public bool IsMetricButtonClicked
-        {
-            get
-            {
-                return this._isMetricButtonClicked;
-            }
-            set
-            {
-                this._isMetricButtonClicked = value;
-            }
-        }
-        public bool IsImperialButtonClicked
-        {
-            get
-            {
-                return this._isImperialButtonClicked;
-            }
-            set
-            {
-                this._isImperialButtonClicked = value;
-            }
-        }
+      
         public double WeightInKilograms
         {
             get
@@ -162,6 +140,7 @@ namespace Assignment5_300916314
                 WeightInKilograms = Convert.ToDouble(WeightTextBox.Text);
                 HeightInMeters = Convert.ToDouble(HeightTextBox.Text);
                 BMIResult = (WeightInKilograms) / (HeightInMeters * HeightInMeters);
+                Math.Round(BMIResult, 2);
                
             }
             if (ImperialUnitsButton.Checked)
@@ -170,6 +149,8 @@ namespace Assignment5_300916314
                 HeightInInches = Convert.ToDouble(HeightTextBox.Text);
                 WeightInPounds = Convert.ToDouble(WeightTextBox.Text);
                 BMIResult = (WeightInPounds * 703) / (HeightInInches * HeightInInches);
+                Math.Round(BMIResult, 2);
+
 
             }
 
@@ -186,22 +167,22 @@ namespace Assignment5_300916314
 
                 if (BMIResult < 18.5)
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + ", It shows that you are under weight";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + ", It shows that you are under weight";
 
                 }
                 if ((BMIResult >= 18.5) && (BMIResult <= 24.9))
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + ", It shows that your weight is  normal";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + ", It shows that your weight is  normal";
 
                 }
                 if ((BMIResult >= 25) && (BMIResult <= 29.9))
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + ", It shows that you are overweight";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + ", It shows that you are overweight";
 
                 }
                 if (BMIResult >= 30)
                 {
-                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + BMIResult + ", It shows that you are obese";
+                    ResultDisplayAreaTextBox.Text = "Your BMI is: " + Math.Round(BMIResult, 2) + ", It shows that you are obese";
 
                 }
             //else
@@ -253,6 +234,27 @@ namespace Assignment5_300916314
             _clear();
 
         }
+        /// <summary>
+        /// This is the Key press Method 
+        /// It is use to control users input
+        /// It accepts only numeric value
+        /// This idea and parts of code is taken from The link below
+        /// https://stackoverflow.com/questions/13253198/validating-a-textbox-to-allow-only-numeric-values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void WeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == '.' || e. KeyChar =='8') //The  character represents a backspace
+            {
+                e.Handled = false; //Do not reject the input
+            }
+            else
+            {
+                e.Handled = true; //Reject the input
+            }
+        }
     }
+    
 
 }

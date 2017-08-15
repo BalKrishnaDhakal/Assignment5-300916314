@@ -200,6 +200,7 @@
             this.WeightTextBox.Name = "WeightTextBox";
             this.WeightTextBox.Size = new System.Drawing.Size(72, 29);
             this.WeightTextBox.TabIndex = 4;
+            this.WeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WeightTextBox_KeyPress);
             // 
             // HeightTextBox
             // 
@@ -209,6 +210,7 @@
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(72, 29);
             this.HeightTextBox.TabIndex = 7;
+            this.HeightTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WeightTextBox_KeyPress);
             // 
             // MetersLabel
             // 
